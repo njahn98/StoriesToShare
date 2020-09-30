@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from "react";
+import { Container } from 'react-bootstrap';
+import Story from './components/Story';
+import Navbar from './components/Navigation';
 import logo from "./logo.svg";
 import "./App.css";
+import Navigation from "./components/Navigation";
 
 function App() {
-  const [apiResponse, setApiResponse] = useState("");
-
-  useEffect(() => {
-    async function callAPI() {
-      console.log("Called API");
-
-      var response = await fetch("http://localhost:9000/test");
-      response = await response.json();
-
-      setApiResponse(response.result);
-
-      console.log(response.result);
+  const range = (end) => {
+    var start = 0;
+    var ans = [];
+    for (let i = start; i <= end; i++) {
+      ans.push(i);
     }
+    return ans;
+  }
 
-    callAPI();
-  }, []);
+  const getStories = () => {
+
+  };
+
+  const numStories = 10;
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{apiResponse}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation></Navigation>
+      <Container>
+        <div className="stories">
+          {
+            range(numStories).map(i =>
+              <Story></Story>
+            )
+          }
+        </div>
+      </Container>
     </div>
   );
 }
