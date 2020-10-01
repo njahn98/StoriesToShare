@@ -1,41 +1,36 @@
+//import React Components
 import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+//import React Router Components
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import Bootstrap Components
+import { Container, Button } from 'react-bootstrap';
+//import CSS
 import "./App.css";
+//import Custom Components
+import Story from './components/Story';
+import Navigation from "./components/Navigation";
+import StoriesWrapper from "./components/StoriesWrapper";
+import Discover from './components/Discover'
+
 
 function App() {
-  const [apiResponse, setApiResponse] = useState("");
-
-  useEffect(() => {
-    async function callAPI() {
-      console.log("Called API");
-
-      var response = await fetch("http://localhost:9000/test");
-      response = await response.json();
-
-      setApiResponse(response.result);
-
-      console.log(response.result);
-    }
-
-    callAPI();
-  }, []);
+  const [canSearch, setCanSearch] = useState(false);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{apiResponse}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navigation canSearch={canSearch} />
+        <Container>
+          <Route exact path="/">
+            <StoriesWrapper setCanSearch={setCanSearch} />
+          </Route>
+          <Route exact path="/discover">
+            <Discover />
+          </Route>
+        </Container>
+      </div>
+    </Router >
+
   );
 }
-
 export default App;
