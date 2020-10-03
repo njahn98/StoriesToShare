@@ -18,13 +18,32 @@ router.post('/store_story',(req,res)=>{
     res.send('Error: Did not recieve story content information, cannot input data into database');
   else{
   mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
-  .catch(err=>res.send("Error Connecting to the Database: " + err))
+  .catch(err=>res.send("Error: Failed to Connect to database: " + err))
   .then(()=>{
       story.save()
-      .catch(err=>res.send('Failed to send information to the database: ' + err))
+      .catch(err=>res.send('Error: Failed to send information to the database: ' + err))
       .then(() => res.send(`Successfully stored the post in the database`));
     })
   }
 });
+
+router.post('/get_stories',(req,res)=>{
+  mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
+    .catch((err)=>res.send('Error: Failed to Connect to database: ' + err))
+    .then(()=>{
+      if(req.body.query!==undefined&&req.body.query!==""){
+        var regex = new RegExp(req.body.query +'+');
+        Story.find({ story_content: regex }, (err, stories)=>res.json(stories.map(story=>constructStoryObj(story))))
+      }else{
+        //TODO make a catch to handle find error
+        Story.find((err, stories)=>res.json(stories.map(story=>constructStoryObj(story))));
+      }
+    }
+  )
+});
+
+function constructStoryObj(story){
+  return {author:story.author, post_time:new Date(Number(story.post_time)), story_content:story.story_content};
+}
 
 module.exports = router;
