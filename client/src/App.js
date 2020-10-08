@@ -10,22 +10,23 @@ import "./App.css";
 import Story from './components/Story';
 import Navigation from "./components/Navigation";
 import StoriesWrapper from "./components/StoriesWrapper";
-import Discover from './components/Discover'
-
+import Discover from './components/Discover';
+import Create from './components/Create';
 
 function App() {
-  const [canSearch, setCanSearch] = useState(false);
-
   return (
     <Router>
       <div className="App">
-        <Navigation canSearch={canSearch} />
+        <Navigation />
         <Container>
           <Route exact path="/">
-            <StoriesWrapper setCanSearch={setCanSearch} />
+            <StoriesWrapper />
           </Route>
           <Route exact path="/discover">
             <Discover />
+          </Route>
+          <Route exact path="/post">
+            <Create></Create>
           </Route>
         </Container>
       </div>

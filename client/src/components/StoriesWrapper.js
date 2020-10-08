@@ -1,35 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
 import Story from './Story';
 
 
 function StoriesWrapper({ setCanSearch }) {
-    const range = (end) => {
-        var start = 1;
-        var ans = [];
-        for (let i = start; i <= end; i++) {
-            ans.push(i);
-        }
-        return ans;
-    }
 
-    const stories = [];
+    const [stories, setStories] = useState([]);
+    useEffect(() => { getStories() }, []);
 
-    const getStories = () => {
+    const getStories = async () => {
         //call api and get stories
+        var res = await (await Axios.post("http://localhost:9000/db/get_stories", {})).data
+        res = res.reverse();
+        setStories(res);
+        console.log(res);
     };
-
-    const numStories = 10;
-
-    useEffect(() => { setCanSearch(true) }, [])
 
     return (
         <div className="stories">
             {
-                range(numStories).map(i =>
-                    <Story></Story>
-                )
+                stories.map(story => <Story key={story.post_time} author={story.author} post_time={story.post_time} content={story.story_content}></Story>)
             }
-        </div>
+        </div >
     )
 }
 export default StoriesWrapper;
