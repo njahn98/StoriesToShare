@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { Button } from 'react-bootstrap'
+import { Button, Form } from 'react-bootstrap'
 
+import './Create.css';
 
 function Create() {
 
@@ -26,11 +27,15 @@ function Create() {
     }
 
     return (
-        <form>
-            <label>Story Content</label>
-            <input type="text" value={storyContent} onChange={(e) => handleInputChange(e, setStoryContent)}></input>
-            <Button onClick={sendPost}>Submit Story!</Button>
-        </form >
+        <Form id="create" onSubmit={sendPost}>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Story Content</Form.Label>
+                <Form.Control as="textarea" rows="10" className="storyContent" onChange={(e) => handleInputChange(e, setStoryContent)} placeholder="Tell us a story!" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Submit
+  </Button>
+        </Form>
     );
 }
 export default Create

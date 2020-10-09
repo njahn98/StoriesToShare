@@ -1,0 +1,12 @@
+.storyContent{
+    resize: none;
+    font-size: 1.2rem;
+}
+
+textarea:focus{
+    outline-style: initial;
+}
+
+#create > * {
+    margin-top: 15px;
+}
