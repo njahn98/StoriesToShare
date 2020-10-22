@@ -3,14 +3,16 @@ import Axios from 'axios';
 import Story from './Story';
 
 
-function StoriesWrapper({ setCanSearch }) {
+function StoriesWrapper({ query }) {
 
     const [stories, setStories] = useState([]);
     useEffect(() => { getStories() }, []);
 
+    useEffect(() => { getStories() }, [query])
+
     const getStories = async () => {
         //call api and get stories
-        var res = await (await Axios.post("http://localhost:9000/db/get_stories", {})).data
+        var res = await (await Axios.post("http://localhost:9000/db/get_stories", { "query": query })).data
         res = res.reverse();
         setStories(res);
         console.log(res);
