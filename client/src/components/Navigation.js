@@ -20,6 +20,8 @@ function Navigation() {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/post">Create</Nav.Link>
                     <Nav.Link href="/discover">Discover</Nav.Link>
+                    <Nav.Link href="/login">Login</Nav.Link>
+                    <Nav.Link href="/createAccount">Create Account</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
