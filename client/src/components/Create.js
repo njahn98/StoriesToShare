@@ -18,6 +18,31 @@ function Create() {
         setState(value);
     }
 
+    const validateForm = () => {
+
+        var invalid = false;
+        var msg = "";
+        
+        if(!storyContent.length > 0){
+            invalid = true;
+            msg = "You can not submit a blank story. Please type content and try again.";
+        }
+
+        if(storyContent.length > 5000){
+            invalid = true;
+            msg = "Your story is too long. Please shorten it and try again.";
+        }
+        
+        if(invalid){
+            alert(msg);
+        }
+
+        else{
+            sendPost();
+        }
+        
+    }
+
     const sendPost = async () => {
         post.author = "Default User";
         post.story_content = storyContent;
@@ -27,7 +52,7 @@ function Create() {
     }
 
     return (
-        <Form id="create" onSubmit={sendPost}>
+        <Form id="create" onSubmit={validateForm}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Story Content</Form.Label>
                 <Form.Control as="textarea" rows="10" className="storyContent" onChange={(e) => handleInputChange(e, setStoryContent)} placeholder="Tell us a story!" />
