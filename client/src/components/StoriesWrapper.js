@@ -7,7 +7,6 @@ function StoriesWrapper({ query }) {
 
     const [stories, setStories] = useState([]);
     useEffect(() => { getStories() }, []);
-
     useEffect(() => { getStories() }, [query])
 
     const getStories = async () => {
@@ -15,8 +14,9 @@ function StoriesWrapper({ query }) {
         var res = await (await Axios.post("http://localhost:9000/db/get_stories", { "query": query })).data
         res = res.reverse();
         setStories(res);
-        console.log(res);
     };
+
+
 
     return (
         <div className="stories">
