@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation";
 import StoriesWrapper from "./components/StoriesWrapper";
 import Discover from './components/Discover';
 import Create from './components/Create';
+import CreateAccount from './components/CreateAccount';
 
 function App() {
   return (
@@ -20,13 +21,16 @@ function App() {
         <Navigation />
         <Container>
           <Route exact path="/">
-            <StoriesWrapper />
+            <StoriesWrapper query="" />
           </Route>
           <Route exact path="/discover">
             <Discover />
           </Route>
           <Route exact path="/post">
             <Create></Create>
+          </Route>
+          <Route exact path="/createAccount">
+            <CreateAccount></CreateAccount>
           </Route>
         </Container>
       </div>
