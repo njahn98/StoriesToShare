@@ -21,7 +21,7 @@ function StoriesWrapper({ query }) {
     return (
         <div className="stories">
             {
-                stories.map(story => <Story key={story.post_time} author={story.author} post_time={story.post_time} content={story.story_content}></Story>)
+                stories.map(story => <Story key={story.post_time} author={story.author} post_time={story.post_time} content={story.story_content} title={story.title}></Story>)
             }
         </div >
     )

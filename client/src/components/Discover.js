@@ -13,7 +13,7 @@ function Discover() {
 
 
     const update = () => {
-        setSearchQuery("Hu");
+        setSearchQuery("");
     }
 
     return (

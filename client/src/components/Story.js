@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import './Story.css';
 
-function Story({ author, post_time, content }) {
+function Story({ author, post_time, content, title }) {
     var [day, setDay] = useState("");
     var [month, setMonth] = useState("");
     var [year, setYear] = useState("");
@@ -21,11 +21,13 @@ function Story({ author, post_time, content }) {
     return (
         <Card className="box-shadow story">
             <Card.Body>
-                <Card.Title>{author}</Card.Title>
-                <Card.Subtitle>{month}/{day}/{year}</Card.Subtitle>
+                <Card.Title>{title}</Card.Title>
+                <Card.Subtitle className="text-muted story-head mr-sm-2">{author}</Card.Subtitle>
+                <Card.Subtitle className="text-muted story-head mr-sm-2">{month}/{day}/{year}</Card.Subtitle>
                 <Card.Text>{content}</Card.Text>
             </Card.Body>
         </Card>
+
     );
 }
 export default Story;

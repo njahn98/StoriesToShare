@@ -1,11 +1,13 @@
 //import React Components
 import React from 'react';
 //import Bootstrap Components
-import { Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 //import CSS
-import './Navigation.css'
+import './Navigation.css';
 //import Custom Components
-import CreateButton from './CreateButton'
+import CreateButton from './CreateButton';
+import LogoutButton from './LogoutButton';
+import Login from './Login'
 //import React Router Components
 require('react-router-dom');
 
@@ -18,13 +20,16 @@ function Navigation() {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto margin">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/post">Create</Nav.Link>
+                    {(localStorage.getItem("token") && localStorage.getItem("token").length != 0) && <Nav.Link href="/post">Create</Nav.Link>}
                     <Nav.Link href="/discover">Discover</Nav.Link>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/createAccount">Create Account</Nav.Link>
+                    {/*   <Nav.Link href="/account">Account</Nav.Link> */}
                 </Nav>
+                <Form inline>
+                    {(localStorage.getItem("token") && localStorage.getItem("token").length != 0) ? <LogoutButton></LogoutButton> : <Login></Login>}
+                    {!localStorage.getItem("token") && <Button className="mr-sm-2" href="/account/create">Create Account</Button>}
+                </Form>
             </Navbar.Collapse>
-        </Navbar>
+        </Navbar >
     );
 }
 export default Navigation;
