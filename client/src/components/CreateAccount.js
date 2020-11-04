@@ -15,7 +15,56 @@ function CreateAccount() {
 
     //do validation here
     const validateForm = (e) => {
-        createAccount(e);
+        
+        var invalid = false;
+        var msg = "";
+
+        //validate 8 characters
+        if(pass.length < 8){
+            invalid = true;
+            msg = "Need at least 8 characters";
+        }
+
+        //validate that the password contains a number
+        var numberHere = 0;
+        var includesNum = false;
+        var numbers = "0123456789";
+        for(var i=0; i < pass.length; i++){
+            includesNum = numbers.includes(pass.charAt(i), 0);
+            if(includesNum){
+                numberHere = 10;
+                break;
+            }
+        }
+        if(numberHere == 0){
+           invalid = true;
+           msg = "Password needs to contain a number!";
+        }
+
+        //validate that password contains a letter
+        var letters = "abcdefghijklmnopqrstuvwxyz";
+        var includesLetter = false;
+        var letterHere = 0;
+        for(var i = 0; i < pass.length; i++){
+            includesLetter = letters.includes(pass.charAt(i),0);
+            if(includesLetter){
+                letterHere = 10;
+                break;
+            }
+        }
+
+        if(letterHere == 0){
+            invalid = true;
+            msg = "Password needs to contain a letter";
+        }
+
+        if(invalid){
+            alert(msg);
+        }
+        else{
+            createAccount(e);
+        }
+       
     }
 
     const createAccount = async (e) => {

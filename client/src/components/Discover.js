@@ -16,6 +16,7 @@ function Discover() {
         setSearchQuery("");
     }
 
+
     return (
         <div>
             <FormControl className="search-bar" placeholder="Search" size="lg" onChange={(e) => handleInputChange(e, setSearchQuery)} />
