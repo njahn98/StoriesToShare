@@ -13,42 +13,47 @@ function CreateAccount() {
         setState(value);
     }
 
-    const createAccount = async () => {
-        var account = {
+    //do validation here
+    const validateForm = (e) => {
+        createAccount(e);
+    }
+
+    const createAccount = async (e) => {
+        e.preventDefault();
+        var data = {
             f_name: fName,
             l_name: lName,
             username: username,
             password: pass
         };
 
-        var res = await Axios.post("http://localhost:9000/db/make_account", account);
+        console.log(data)
 
-        if (res = username) {
+        var res = await Axios.post("http://localhost:9000/db/make_account", data);
+
+        if (res.data == username) {
             alert("Account created successfullly");
+            window.location = "/"
         }
-        else if (res == "username already exisits") {
-            alert("Username aleady exists");
+        else if (!res.data || res.data == "") {
+            alert("An error occured please try again.")
         }
-
+        else {
+            alert(res.data)
+        }
     }
 
     return (
-        <Form id="create" onSubmit={createAccount}>
+        <Form id="create" onSubmit={validateForm} >
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control type="text" className="fName" onChange={(e) => handleInputChange(e, setFName)} placeholder="First Name" />
-
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control type="text" className="lName" onChange={(e) => handleInputChange(e, setLName)} placeholder="Last Name" />
-
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" className="username" onChange={(e) => handleInputChange(e, setUsername)} placeholder="Username" />
-
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" className="password" onChange={(e) => handleInputChange(e, setPass)} placeholder="Password" />
+                <h1>Create Account</h1>
+                <Form.Control type="text" id="fName" className="fName" onChange={(e) => handleInputChange(e, setFName)} placeholder="First Name" />
+                <Form.Control type="text" id="lName" className="lName" onChange={(e) => handleInputChange(e, setLName)} placeholder="Last Name" />
+                <Form.Control type="text" id="username" className="username" onChange={(e) => handleInputChange(e, setUsername)} placeholder="Username" />
+                <Form.Control type="password" id="password" className="password" onChange={(e) => handleInputChange(e, setPass)} placeholder="Password" />
             </Form.Group>
 
-            <Button>Create Account</Button>
+            <Button type="submit">Create Account</Button>
         </Form>
     );
 }

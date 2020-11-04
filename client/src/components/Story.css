@@ -1,3 +1,15 @@
 .story{
     margin-top: 15px;
 }
+
+.card-subtitle{
+    margin-top: 2px;
+}
+
+.story-head{
+    display: inline-block;
+}
+
+.card-title{
+    margin: 0px;
+}

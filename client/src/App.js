@@ -27,10 +27,10 @@ function App() {
             <Discover />
           </Route>
           <Route exact path="/post">
-            <Create></Create>
+            {(localStorage.getItem("token") && localStorage.getItem("token").length != 0) && <Create></Create>}
           </Route>
-          <Route exact path="/createAccount">
-            <CreateAccount></CreateAccount>
+          <Route exact path="/account/create">
+            <CreateAccount> </CreateAccount>
           </Route>
         </Container>
       </div>
