@@ -15,7 +15,7 @@ require('react-router-dom');
 function Navigation() {
     return (
         <Navbar className="box-shadow navbar-dark" bg="dark" expand="lg" sticky='top'>
-            <Navbar.Brand href="#home">Stories To Share</Navbar.Brand>
+            <Navbar.Brand href="/">Stories To Share</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto margin">
