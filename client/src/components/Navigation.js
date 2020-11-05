@@ -23,7 +23,7 @@ function Navigation() {
                     <Nav.Link href="/discover">Discover</Nav.Link>
                 </Nav>
                 <Form inline>
-                    {(localStorage.getItem("token") && localStorage.getItem("token").length !== 0) ? <LogoutButton></LogoutButton> : <Login></Login>}
+                    {(localStorage.getItem("token") && localStorage.getItem("token").length !== 0) ? <LogoutButton className='mr-sm-2'></LogoutButton> : <Login className='mr-sm-2'></Login>}
                     {!localStorage.getItem("token") && <Button className="mr-sm-2" href="/account/create">Create Account</Button>}
                 </Form>
             </Navbar.Collapse>
