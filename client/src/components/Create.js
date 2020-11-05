@@ -30,8 +30,8 @@ function Create() {
     }
 
     //validated create form and sends post to server if valid
-    const validateForm = () => {
-
+    const validateForm = (e) => {
+        e.preventDefault();
         var invalid = false;
         var msg = "";
 
@@ -63,8 +63,9 @@ function Create() {
         post.title = title;
 
         await Axios.post("http://localhost:9000/db/store_story", post);
-
+        console.log("HI")
         window.location = "/";
+        console.log("BYE")
     }
 
     return (
