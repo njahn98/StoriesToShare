@@ -5,18 +5,23 @@ import { Redirect } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 
 function CreateAccount() {
+    //state that is updated when field is changed
     const [pass, setPass] = useState("");
     const [username, setUsername] = useState("");
 
+    //updates the given state with current event value
     const handleInputChange = (event, setState) => {
         var value = event.target.value;
         setState(value);
     }
 
+
+    //do validaton here
     const validateForm = (e) => {
         login(e);
     }
 
+    //send login request to server - if valid store a login token in local storage and redirect to home page
     const login = async (e) => {
         e.preventDefault();
         var account = {
@@ -38,6 +43,7 @@ function CreateAccount() {
 
     }
 
+    //stores token on local system
     const storeToken = (username) => {
         if (!localStorage.getItem("token") || localStorage.getItem("token").length === 0) {
             console.log("Original Value: " + localStorage.getItem("token"));
@@ -45,8 +51,9 @@ function CreateAccount() {
         localStorage.setItem("token", username)
     }
 
-    const [show, setShow] = useState(false);
 
+    //state and logic to display login modal
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 

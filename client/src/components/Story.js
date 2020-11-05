@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import './Story.css';
 
+//attributes optional but recommended will be used to render correct story content
 function Story({ author, post_time, content, title }) {
+    //state for post
     var [day, setDay] = useState("");
     var [month, setMonth] = useState("");
     var [year, setYear] = useState("");
 
+    //called convertDate on load
     useEffect(() => { convertDate() }, []);
 
+    //conversts date-time to date format desired
     function convertDate() {
         var date = new Date(post_time);
-        console.log(date)
         setDay(date.getDate());
         setMonth(date.getMonth() + 1);
         setYear(date.getFullYear());
     }
-
 
     return (
         <Card className="box-shadow story">

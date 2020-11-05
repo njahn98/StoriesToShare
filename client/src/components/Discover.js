@@ -3,8 +3,10 @@ import { FormControl, Button } from 'react-bootstrap';
 import StoriesWrapper from './StoriesWrapper';
 import './Discover.css';
 function Discover() {
+    //state for the current query
     const [searchQuery, setSearchQuery] = useState("--start-blank--");
 
+    //updates the given state with current event value
     const handleInputChange = (event, setState) => {
         var value = event.target.value;
         console.log(value);

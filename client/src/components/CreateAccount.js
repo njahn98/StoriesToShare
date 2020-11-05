@@ -3,11 +3,13 @@ import Axios from 'axios';
 import { Button, Form } from 'react-bootstrap'
 
 function CreateAccount() {
+    //state for story content and title: This is automatically updated when the coresponding field is changed
     const [fName, setFName] = useState("");
     const [lName, setLName] = useState("");
     const [pass, setPass] = useState("");
     const [username, setUsername] = useState("");
 
+    //updates the given state with current event value
     const handleInputChange = (event, setState) => {
         var value = event.target.value;
         setState(value);
@@ -18,6 +20,7 @@ function CreateAccount() {
         createAccount(e);
     }
 
+    //send new account request to server if valid redirect to homepage
     const createAccount = async (e) => {
         e.preventDefault();
         var data = {
@@ -26,8 +29,6 @@ function CreateAccount() {
             username: username,
             password: pass
         };
-
-        console.log(data)
 
         var res = await Axios.post("http://localhost:9000/db/make_account", data);
 

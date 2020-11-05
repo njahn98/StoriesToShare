@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap'
 
 function LogoutButton() {
-
+    //deletes authenticated login token
     const logout = () => {
         localStorage.removeItem("token");
         window.location = "/";

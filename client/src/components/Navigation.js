@@ -22,7 +22,6 @@ function Navigation() {
                     <Nav.Link href="/">Home</Nav.Link>
                     {(localStorage.getItem("token") && localStorage.getItem("token").length != 0) && <Nav.Link href="/post">Create</Nav.Link>}
                     <Nav.Link href="/discover">Discover</Nav.Link>
-                    {/*   <Nav.Link href="/account">Account</Nav.Link> */}
                 </Nav>
                 <Form inline>
                     {(localStorage.getItem("token") && localStorage.getItem("token").length != 0) ? <LogoutButton></LogoutButton> : <Login></Login>}
