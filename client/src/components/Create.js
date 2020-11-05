@@ -62,14 +62,14 @@ function Create() {
         post.story_content = storyContent;
         post.title = title;
 
-        var res = await Axios.post("http://localhost:9000/db/store_story", post);
+        await Axios.post("http://localhost:9000/db/store_story", post);
 
         window.location = "/";
     }
 
     return (
         <Form id="create" onSubmit={validateForm}>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
                 <h1>Create Story</h1>
                 <Form.Control size="lg" type="text" onChange={(e) => handleInputChange(e, setTitle)} placeholder="Title" />
                 <Form.Control as="textarea" id="storyContent" rows="10" className="storyContent" onChange={(e) => handleInputChange(e, setStoryContent)} placeholder="" />

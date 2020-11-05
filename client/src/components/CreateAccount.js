@@ -32,11 +32,11 @@ function CreateAccount() {
 
         var res = await Axios.post("http://localhost:9000/db/make_account", data);
 
-        if (res.data == username) {
+        if (res.data === username) {
             alert("Account created successfullly");
             window.location = "/"
         }
-        else if (!res.data || res.data == "") {
+        else if (!res.data || res.data === "") {
             alert("An error occured please try again.")
         }
         else {
@@ -46,7 +46,7 @@ function CreateAccount() {
 
     return (
         <Form id="create" onSubmit={validateForm} >
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group>
                 <h1>Create Account</h1>
                 <Form.Control type="text" id="fName" className="fName" onChange={(e) => handleInputChange(e, setFName)} placeholder="First Name" />
                 <Form.Control type="text" id="lName" className="lName" onChange={(e) => handleInputChange(e, setLName)} placeholder="Last Name" />

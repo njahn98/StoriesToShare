@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { Button, Form } from 'react-bootstrap'
-import { Redirect } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 
 function CreateAccount() {
@@ -32,7 +31,7 @@ function CreateAccount() {
         var res = await Axios.post("http://localhost:9000/db/get_account", account);
         res = res.data
 
-        if (res == username) {
+        if (res === username) {
             alert("You have signed in");
             storeToken(res);
             window.location = "/";

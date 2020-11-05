@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormControl, Button } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 import StoriesWrapper from './StoriesWrapper';
 import './Discover.css';
 function Discover() {
@@ -11,11 +11,6 @@ function Discover() {
         var value = event.target.value;
         console.log(value);
         setState(value);
-    }
-
-
-    const update = () => {
-        setSearchQuery("");
     }
 
     return (
