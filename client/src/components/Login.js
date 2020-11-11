@@ -52,7 +52,7 @@ function CreateAccount() {
 
     return (
         <>
-            <Button className="mr-sm-2" variant="primary" onClick={handleShow}>
+            <Button className="mr-sm-2" variant="light" onClick={handleShow}>
                 Login
             </Button>
 
@@ -71,7 +71,7 @@ function CreateAccount() {
                         <Button variant="secondary" onClick={handleClose}>
                             Cancel
                         </Button>
-                        <Button type="submit">Login</Button>
+                        <Button variant= "info" type="submit">Login</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>

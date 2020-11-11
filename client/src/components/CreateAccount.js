@@ -102,7 +102,7 @@ function CreateAccount() {
                 <Form.Control type="password" id="password" className="password" onChange={(e) => handleInputChange(e, setPass)} placeholder="Password" />
             </Form.Group>
 
-            <Button type="submit">Create Account</Button>
+            <Button type="submit" variant="light">Create Account</Button>
         </Form>
     );
 }

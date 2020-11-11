@@ -67,7 +67,7 @@ function Create() {
                 <Form.Control size="lg" type="text" onChange={(e) => handleInputChange(e, setTitle)} placeholder="Title" />
                 <Form.Control as="textarea" id="storyContent" rows="10" className="storyContent" onChange={(e) => handleInputChange(e, setStoryContent)} placeholder="" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="light" type="submit">
                 Submit
   </Button>
         </Form>

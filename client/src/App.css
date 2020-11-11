@@ -1,20 +1,28 @@
 .box-shadow{
-  box-shadow: 0 2px 1px rgba(0,0,0,0.12), 
-              0 3px 2px rgba(0,0,0,0.12), 
-              0 4px 4px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 1px rgba(6, 14, 49, 0.959), 
+              0 3px 2px rgba(6, 14, 49, 0.959), 
+              0 4px 4px rgba(6, 14, 49, 0.959);
 }
 
 .container{
   margin-top: 5px;
   margin-bottom: 15px;
+  background-color: #d0f1fd;
 }
 
 .container > *{
   margin: inherit;
 }
 
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: #d0f1fd;
+  background-image: url("/client/public/backgroundimg.jpg") ;
+  background-repeat: repeat-y;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #91b2f8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

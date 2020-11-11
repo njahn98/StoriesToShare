@@ -9,7 +9,7 @@ function LogoutButton() {
     }
 
     return (
-        <Button className="mr-sm-2" onClick={logout}>Logout</Button>
+        <Button variant="light" className="mr-sm-2" onClick={logout}>Logout</Button>
     )
 }
 export default LogoutButton;
