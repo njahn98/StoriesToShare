@@ -1,13 +1,12 @@
 //import React Components
-import React, { useEffect, useState } from "react";
+import React from "react";
 //import React Router Components
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 //import Bootstrap Components
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 //import CSS
 import "./App.css";
 //import Custom Components
-import Story from './components/Story';
 import Navigation from "./components/Navigation";
 import StoriesWrapper from "./components/StoriesWrapper";
 import Discover from './components/Discover';
@@ -27,7 +26,7 @@ function App() {
             <Discover />
           </Route>
           <Route exact path="/post">
-            {(localStorage.getItem("token") && localStorage.getItem("token").length != 0) && <Create></Create>}
+            {(localStorage.getItem("token") && localStorage.getItem("token").length !== 0) && <Create></Create>}
           </Route>
           <Route exact path="/account/create">
             <CreateAccount> </CreateAccount>
