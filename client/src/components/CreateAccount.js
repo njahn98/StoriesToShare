@@ -17,61 +17,60 @@ function CreateAccount() {
 
     //do validation here
     const validateForm = (e) => {
-        
+        e.preventDefault();
         var invalid = false;
         var msg = "";
 
         //validate 8 characters
-        if(pass.length < 8){
+        if (pass.length < 8) {
             invalid = true;
-            msg = "Need at least 8 characters";
+            msg = "Passwords need to be least 8 characters";
         }
 
         //validate that the password contains a number
         var numberHere = 0;
         var includesNum = false;
         var numbers = "0123456789";
-        for(var i=0; i < pass.length; i++){
+        for (var i = 0; i < pass.length; i++) {
             includesNum = numbers.includes(pass.charAt(i), 0);
-            if(includesNum){
+            if (includesNum) {
                 numberHere = 10;
                 break;
             }
         }
-        if(numberHere == 0){
-           invalid = true;
-           msg = "Password needs to contain a number!";
+        if (numberHere == 0) {
+            invalid = true;
+            msg = "Password needs to contain a number!";
         }
 
         //validate that password contains a letter
         var letters = "abcdefghijklmnopqrstuvwxyz";
         var includesLetter = false;
         var letterHere = 0;
-        for(var i = 0; i < pass.length; i++){
-            includesLetter = letters.includes(pass.charAt(i),0);
-            if(includesLetter){
+        for (var i = 0; i < pass.length; i++) {
+            includesLetter = letters.includes(pass.charAt(i), 0);
+            if (includesLetter) {
                 letterHere = 10;
                 break;
             }
         }
 
-        if(letterHere == 0){
+        if (letterHere == 0) {
             invalid = true;
             msg = "Password needs to contain a letter";
         }
 
-        if(invalid){
+        if (invalid) {
             alert(msg);
         }
-        else{
+        else {
             createAccount(e);
         }
-       
+
     }
 
     //send new account request to server if valid redirect to homepage
     const createAccount = async (e) => {
-        e.preventDefault();
         var data = {
             f_name: fName,
             l_name: lName,

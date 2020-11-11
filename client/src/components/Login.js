@@ -14,12 +14,6 @@ function CreateAccount() {
         setState(value);
     }
 
-
-    //do validaton here
-    const validateForm = (e) => {
-        login(e);
-    }
-
     //send login request to server - if valid store a login token in local storage and redirect to home page
     const login = async (e) => {
         e.preventDefault();
@@ -66,7 +60,7 @@ function CreateAccount() {
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
-                <Form id="create" onSubmit={validateForm}>
+                <Form id="create" onSubmit={login}>
                     <Modal.Body>
                         <Form.Group controlId="loginForm">
                             <Form.Control type="text" className="username" onChange={(e) => handleInputChange(e, setUsername)} placeholder="Username" />
@@ -77,7 +71,7 @@ function CreateAccount() {
                         <Button variant="secondary" onClick={handleClose}>
                             Cancel
                         </Button>
-                        <Button variant= "info" type="submit">Login</Button>
+                        <Button variant="info" type="submit">Login</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>
