@@ -58,7 +58,7 @@ function CreateAccount() {
 
     return (
         <>
-            <Button className="mr-sm-2" variant="light" onClick={handleShow}>
+            <Button className="mr-sm-2" variant="info" onClick={handleShow}>
                 Login
             </Button>
 

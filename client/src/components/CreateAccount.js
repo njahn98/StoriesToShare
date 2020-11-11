@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { Button, Form } from 'react-bootstrap'
 
+import './CreateAccount.css';
+
 function CreateAccount() {
     //state for story content and title: This is automatically updated when the coresponding field is changed
     const [fName, setFName] = useState("");
@@ -96,7 +98,9 @@ function CreateAccount() {
     return (
         <Form id="create" onSubmit={validateForm} >
             <Form.Group>
-                <h1>Create Account</h1>
+                <div class = "createAc">
+                    <h2> Create Account</h2>
+                </div>
                 <Form.Control type="text" id="fName" className="fName" onChange={(e) => handleInputChange(e, setFName)} placeholder="First Name" />
                 <Form.Control type="text" id="lName" className="lName" onChange={(e) => handleInputChange(e, setLName)} placeholder="Last Name" />
                 <Form.Control type="text" id="username" className="username" onChange={(e) => handleInputChange(e, setUsername)} placeholder="Username" />

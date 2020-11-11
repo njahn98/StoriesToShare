@@ -13,7 +13,12 @@ require('react-router-dom');
 
 function Navigation() {
     return (
-        <Navbar className="box-shadow navbar-dark" bg="dark" expand="lg" sticky='top'>
+        <Navbar className="box-shadow navbar-dark" bg="secondary" expand="lg" sticky='top'>
+            <Navbar.Brand href="/">
+            <div class="logo-image">
+                <img  src = "booklogo.jpg" />
+            </div>
+            </Navbar.Brand>
             <Navbar.Brand href="/">Stories To Share</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -24,7 +29,7 @@ function Navigation() {
                 </Nav>
                 <Form inline>
                     {(localStorage.getItem("token") && localStorage.getItem("token").length !== 0) ? <LogoutButton className='mr-sm-2'></LogoutButton> : <Login className='mr-sm-2'></Login>}
-                    {!localStorage.getItem("token") && <Button className="mr-sm-2" href="/account/create">Create Account</Button>}
+                    {!localStorage.getItem("token") && <Button className="mr-sm-2 bg-info" href="/account/create">Create Account</Button>}
                 </Form>
             </Navbar.Collapse>
         </Navbar >
