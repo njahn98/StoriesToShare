@@ -16,6 +16,7 @@ import CreateAccount from './components/CreateAccount';
 function App() {
   return (
     <Router>
+      <a id="top"></a>
       <div className="App">
         <Navigation />
         <Container>
