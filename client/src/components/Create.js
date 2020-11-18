@@ -45,6 +45,11 @@ function Create() {
             msg = "Your story is too long. Please shorten it and try again.";
         }
 
+        if (!title.length > 0) {
+            invalid = true;
+            msg = "You can not submit a story with a blank title. Please type content and try again."
+        }
+
         if (invalid) {
             alert(msg);
         }

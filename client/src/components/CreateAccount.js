@@ -23,6 +23,21 @@ function CreateAccount() {
         var invalid = false;
         var msg = "";
 
+        if (!fName.length > 0) {
+            invalid = true;
+            msg = "First Name is required";
+        }
+
+        if (!lName.length > 0) {
+            invalid = true;
+            msg = "Last Name is required";
+        }
+
+        if (!username.length > 0) {
+            invalid = true;
+            msg = "Username is required";
+        }
+
         //validate 8 characters
         if (pass.length < 8) {
             invalid = true;
@@ -97,7 +112,7 @@ function CreateAccount() {
     return (
         <Form id="create" onSubmit={validateForm} >
             <Form.Group>
-                <div class = "createAc">
+                <div class="createAc">
                     <h2> Create Account</h2>
                 </div>
                 <Form.Control type="text" id="fName" className="fName" onChange={(e) => handleInputChange(e, setFName)} placeholder="First Name" />
